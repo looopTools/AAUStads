@@ -4,12 +4,21 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import nyx.com.aaustads.model.UserModel;
+import nyx.com.aaustads.nyx.com.aaustads.logic.CheckCredentials;
 
 
 public class login_activity extends Activity {
 
+    private UserModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        model = new UserModel();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity);
     }
@@ -32,5 +41,15 @@ public class login_activity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void checkCreds(View view){
+        String username = ((EditText) findViewById(R.id.usernameInput)).getText().toString();
+        String password = ((EditText) findViewById(R.id.passwordInput)).getText().toString();
+        if(CheckCredentials.isStadsUser(username, password)) {
+            Toast t = Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT);
+            t.show();
+        }
+
     }
 }
