@@ -17,3 +17,9 @@ The application is under GPLv3.
 
 The reason for choosing GPL for the application. Is so other developer can look it through and ensure nothign hoxay is going on
 and help making bug fixes.
+
+**Credits**
+
+The application uses kSoap2-Android for communicating with STADS Webservices
+
+URL: https://code.google.com/p/ksoap2-android/
